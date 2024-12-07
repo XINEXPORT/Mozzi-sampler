@@ -1,0 +1,73 @@
+#include <Mozzi.h>
+#include <Sample.h> // Sample template
+#include <samples/burroughs1_18649_int8.h> // a converted audio sample included in the Mozzi download
+
+const char KNOB_PIN = 0;  // set the analog input pin for the knob
+const char PIEZO_PIN = 3;  // set the analog input pin for the piezo
+const int threshold = 600;  // threshold value to decide when the detected signal is a knock or not
+
+// use: Sample <table_size, update_rate> SampleName (wavetable)
+Sample <BURROUGHS1_18649_NUM_CELLS, MOZZI_AUDIO_RATE> aSample(BURROUGHS1_18649_DATA);
+float recorded_pitch = (float) BURROUGHS1_18649_SAMPLERATE / (float) BURROUGHS1_18649_NUM_CELLS;
+
+boolean triggered = false;
+
+void setup(){
+  //Serial.begin(9600); // for Teensy 3.1, beware printout can cause glitches
+  Serial.begin(115200); // set up the Serial output so we can look at the piezo values // set up the Serial output so we can look at the piezo values
+ pinMode(2, INPUT_PULLUP);
+  startMozzi(); // :))
+}
+
+void updateControl(){
+  // read the knob
+  int knob_value = mozziAnalogRead<10>(KNOB_PIN); // value is 0-1023
+
+  // map it to values between 0.1 and about double the recorded pitch
+  float pitch = (recorded_pitch * (float) knob_value / 512.f) + 0.1f;
+
+  // set the sample playback frequency
+  aSample.setFreq(pitch);
+
+  // read the piezo
+  int piezo_value = mozziAnalogRead<10>(PIEZO_PIN); // value is 0-1023
+
+
+  // read the button
+int btnVal = digitalRead(2);
+
+//only trigger once each time the piezo goes over the threshold
+ if (btnVal == HIGH) {
+ //   digitalWrite(13, LOW);
+ if (!triggered){
+     aSample.start();
+     triggered = true;
+   }
+ }
+ else{
+   triggered = false;
+ }
+
+
+// Keep in mind the pull-up means the pushbutton's logic is inverted. It goes
+  // HIGH when it's open, and LOW when it's pressed. Turn on pin 13 when the
+  // button's pressed, and off when it's not:
+//   if (btnVal == HIGH) {
+//  //   digitalWrite(13, LOW);
+//   } else {
+//   //  digitalWrite(13, HIGH);
+//   }
+
+Serial.print(knob_value); //print sensor value to serial port
+Serial.print(" "); // print a space to serial port
+Serial.print(btnVal); //print digital sensor val
+Serial.print(" "); // print a space
+Serial.println(); // print a line-feed
+
+}
+AudioOutput updateAudio(){
+  return MonoOutput::from8Bit(aSample.next());
+}
+void loop(){
+  audioHook();
+}
