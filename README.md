@@ -30,4 +30,4 @@ Can be found in the Arduino IDE under File -> Examples
 # Workshop Learning Moments
  - My left USB was not being recognized by the Arduino IDE. I switched to my right side USB and it worked.
  - I tried replacing a photoresistor with a potentiometer, but it did not work. The code examples relies on a photoresistor component
- - The resistor for the photoresitor was too low, I tried a 10 or above and the sensitivity increased which leads to more synth modulation.
+ - The resistor for the photoresistor was too low, I tried a 10 or above and the sensitivity increased which lead to more synth modulation.
