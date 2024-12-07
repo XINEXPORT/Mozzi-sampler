@@ -9,6 +9,7 @@
 
 
 # #Arduino Examples Used 
+Can be found in the Arduino IDE under File -> Examples
 - Basics -> Blink,
   - to test connectivity
 - Digital -> DigitalInputPullup
