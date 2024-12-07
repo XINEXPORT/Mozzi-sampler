@@ -3,8 +3,10 @@
 
 # Materials
 - Arduino Uno Kit
-- Photoresistor sensor
-- Piezo 
+- Photoresistor sensor </br>
+- Optional
+  - audio jack component or a small speaker with leads
+
 
 # #Arduino Examples Used 
 - Basics -> Blink,
