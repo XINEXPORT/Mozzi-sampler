@@ -8,7 +8,7 @@
   - audio jack component or a small speaker with leads
 
 
-# #Arduino Examples Used 
+# Arduino Examples Used 
 Can be found in the Arduino IDE under File -> Examples
 - Basics -> Blink,
   - to test connectivity
@@ -26,3 +26,8 @@ Can be found in the Arduino IDE under File -> Examples
 - [Arduino Tutorials](https://www.arduino.cc/en/Tutorial/HomePage)
 - [6 Awesome Free Arduino eBooks](https://www.electronicsforu.com/resources/6-awesome-free-arduino-ebooks)
 - [Fritzing Breadboard for demo](https://fritzing.org/tags/breadboard)
+
+# Workshop Learning Moments
+ - My left USB was not being recognized by the Arduino IDE. I switched to my right side USB and it worked.
+ - I tried replacing a photoresistor with a potentiometer, but it did not work. The code examples relies on a photoresistor component
+ - The resistor for the photoresitor was too low, I tried a 10 or above and the sensitivity increased which leads to more synth modulation.
