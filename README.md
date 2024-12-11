@@ -26,6 +26,7 @@ Can be found in the Arduino IDE under File -> Examples
 - [Arduino Tutorials](https://www.arduino.cc/en/Tutorial/HomePage)
 - [6 Awesome Free Arduino eBooks](https://www.electronicsforu.com/resources/6-awesome-free-arduino-ebooks)
 - [Fritzing Breadboard for demo](https://fritzing.org/tags/breadboard)
+- [DigiKey's 4 Band Resistor Color Code Calculator](https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code)
 
 # Workshop Learning Moments
  - My left USB was not being recognized by the Arduino IDE. I switched to my right side USB and it worked.
