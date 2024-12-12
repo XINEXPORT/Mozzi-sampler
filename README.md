@@ -1,6 +1,9 @@
 # Introduction to instrument design based on Arduino microcontroller with Kacper Ziemianin
 
 
+![analog digital  in_bb](https://github.com/user-attachments/assets/6ff1ee2b-087c-4288-9467-9f03e33a57cb)
+
+
 # Materials
 - Arduino Uno Kit
 - Photoresistor sensor </br>
